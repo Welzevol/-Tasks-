@@ -1,17 +1,16 @@
-﻿// Задача 2: Напишите программу вычисления функции Аккермана с помощью рекурсии. 
-// Даны два неотрицательных числа m и n.
+﻿// Задача 1: Задайте значения M и N. 
+// Напишите программу, которая выведет все натуральные числа в промежутке от M до N. 
+// Использовать рекурсию, не использовать циклы.
 
+Console.Write("Введите число M: ");
+int M = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите число N: ");
+int N = Convert.ToInt32(Console.ReadLine());
 
-Console.Write("Введите число m: ");
-int m = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите число n: ");
-int n = Convert.ToInt32(Console.ReadLine());
-
-int akkerman(int m, int n)
+string PrintNumbers(int start, int end)
 {
-if (m == 0) return n + 1;
-else if (n == 0) return akkerman(m - 1, 1);
-else return akkerman(m - 1, akkerman(m, n - 1));
+    if (start == end) return start.ToString();
+    return start + " " + PrintNumbers(start + 1, end);
 }
 
-Console.WriteLine($"Функция Аккермана равняется {akkerman(m, n)} ");
+Console.WriteLine($"Печать чисел от {M} до {N} = {PrintNumbers(M, N)}");
